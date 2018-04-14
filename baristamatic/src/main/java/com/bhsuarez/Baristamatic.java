@@ -1,30 +1,37 @@
 package com.bhsuarez;
 
+import java.util.ArrayList;
+
 public class Baristamatic {
-
-    private static Ingredient coffee = new Ingredient("Coffee",0.75,10);
-
-    /* Ingredient objects
-
-    private static Ingredient decafCoffee = new Ingredient("Decaf Coffee",0.75,10);
-    private static Ingredient sugar = new Ingredient("Sugar",0.25,10);
-    private static Ingredient cream = new Ingredient("Cream",0.25,10);
-    private static Ingredient steamedMilk = new Ingredient("Steamed Milk",0.35,10);
-    private static Ingredient foamedMilk = new Ingredient("Foamed Milk",0.35,10);
-    private static Ingredient espresso = new Ingredient("Espresso",1.10,10);
-    private static Ingredient cocoa = new Ingredient("Cocoa",0.90,10);
-    private static Ingredient whippedCream = new Ingredient("Whipped Cream",1.00,10);
-    */
 
     public static void main(String[] args){
 
-        // Output testing for useIngredient
-        System.out.println(coffee.getIngredientName()+","+coffee.getIngredientInventoryCount());
-        coffee.useIngredient(1);
-        System.out.println(coffee.getIngredientName()+","+coffee.getIngredientInventoryCount());
-        coffee.useIngredient(4);
-        System.out.println(coffee.getIngredientName()+","+coffee.getIngredientInventoryCount());
-        coffee.reloadIngredient();
-        System.out.println(coffee.getIngredientName()+","+coffee.getIngredientInventoryCount());
+        // Inventory of Ingredients
+        ArrayList<Ingredient> inventory = new ArrayList<Ingredient>();
+
+        // Menu items
+        ArrayList<Drink> menu = new ArrayList<Drink>();
+
+        // Create Ingredient objects for drinks
+        inventory.add((new Ingredient("Coffee",0.75,10)));
+        inventory.add((new Ingredient("Decaf Coffee",0.75,10)));
+        inventory.add((new Ingredient("Sugar",0.25,10)));
+        inventory.add((new Ingredient("Cream",0.25,10)));
+        inventory.add((new Ingredient("Steamed Milk",0.35,10)));
+        inventory.add((new Ingredient("Foamed Milk",0.35,10)));
+        inventory.add((new Ingredient("Espresso",1.10,10)));
+        inventory.add((new Ingredient("Cocoa",0.90,10)));
+        inventory.add((new Ingredient("Whipped Cream",1.00,10)));
+
+        System.out.println("Inventory:");
+        for(int i=0; i < inventory.size(); i++) {
+            System.out.println(inventory.get(i).getIngredientName() + "," + inventory.get(i).getIngredientInventoryCount());
+        }
+        System.out.println("Menu:");
+        for(int i=0; i < menu.size(); i++){
+            System.out.println();
+        }
+
+
     }
 }
