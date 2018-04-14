@@ -56,8 +56,8 @@ public class IngredientTest {
     }
 
     @Test
-    public void testReloadIngredient(){
-        ingredient.reloadIngredient();
+    public void testReloadIngredientCount(){
+        ingredient.reloadIngredientCount();
         assertEquals(ingredient.getIngredientInventoryCount(),10,0);
     }
 }

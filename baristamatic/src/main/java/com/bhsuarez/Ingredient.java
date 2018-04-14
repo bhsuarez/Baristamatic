@@ -55,7 +55,7 @@ public class Ingredient {
     }
 
     // Reload ingredient
-    public void reloadIngredient(){
+    public void reloadIngredientCount(){
         ingredientInventoryCount = 10;
     }
 
