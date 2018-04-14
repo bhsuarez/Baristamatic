@@ -2,34 +2,61 @@ package com.bhsuarez;
 
 public class Ingredient {
 
-    //Define variables
-    private String ingredientName;
-    private double ingredientCost;
+    // Define ingredient name
+    public String ingredientName;
 
+    // Define ingredient cost per unit
+    public double ingredientPerUnitCost;
 
-    public Ingredient(String setName, double setCost){
-        ingredientCost = setCost;
-        ingredientName = setName;
-    }
+    // Define available inventory of ingredient
+    public int ingredientInventoryCount;
 
     // Default Constructor
-    public Ingredient(String testName, String s) {
-
+    public Ingredient(String setName, double setCost, int setInventoryCount){
+        ingredientPerUnitCost = setCost;
+        ingredientName = setName;
+        ingredientInventoryCount = setInventoryCount;
     }
 
+    // Getter for ingredientName
     public String getIngredientName() {
         return ingredientName;
     }
 
+    // Getter for ingredientCost
     public double getIngredientCost() {
-        return ingredientCost;
+        return ingredientPerUnitCost;
     }
 
-    public void setIngredientCost(double ingredientCost) {
-        this.ingredientCost = ingredientCost;
+    // Getter for ingredientInventoryCount
+    public int getIngredientInventoryCount(){
+        return ingredientInventoryCount;
     }
 
+    // Setter for ingredientCost
+    public void setIngredientCost(double ingredientPerUnitCost) {
+        this.ingredientPerUnitCost = ingredientPerUnitCost;
+    }
+
+    // Setter for ingredientName
     public void setIngredientName(String ingredientName) {
         this.ingredientName = ingredientName;
     }
+
+    // Setter for ingredientInventoryCount
+    public void setIngredientInventoryCount(int ingredientInventoryCount){
+        this.ingredientInventoryCount = ingredientInventoryCount;
+
+    }
+
+    // Reduce ingredient inventory count by int argument
+    public void useIngredient(int count){
+        ingredientInventoryCount = ingredientInventoryCount-count;
+    }
+
+    // Reload ingredient
+    public void reloadIngredient(){
+        ingredientInventoryCount = 10;
+    }
+
 }
