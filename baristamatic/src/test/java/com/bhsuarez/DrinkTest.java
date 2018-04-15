@@ -11,7 +11,7 @@ public class DrinkTest {
     // Initializer for Drink object
     @Before
     public void setDrink() {
-        this.drink = new Drink(0,"Test",0);
+        this.drink = new Drink(0,"Test",0,false);
         assertEquals(this.drink,drink);
     }
 
@@ -53,4 +53,18 @@ public class DrinkTest {
         drink.setDrinkCost(0.0);
         assertEquals(drink.getDrinkCost(),0,0);
     }
+
+    //Test for getInStock()
+    @Test
+    public void getInStock_False(){
+        assertFalse(drink.isInStock());
+    }
+
+    @Test
+    //Test for setInStock()
+    public void setInStock_Test(){
+        drink.setInStock(true);
+        assertTrue(drink.isInStock());
+    }
+
 }

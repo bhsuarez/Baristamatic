@@ -14,11 +14,15 @@ public class Drink {
     // Define array of drink ingredients
     private Ingredient[] ingredients = null;
 
+    // Define inStock boolean variable
+    private boolean inStock;
+
     // Default constructor
-    public Drink(int drinkNumber, String drinkName, double drinkCost) {
+    public Drink(int drinkNumber, String drinkName, double drinkCost, boolean inStock) {
         this.drinkNumber = drinkNumber;
         this.drinkName = drinkName;
         this.drinkCost = drinkCost;
+        this.inStock = inStock;
     }
 
     // Getter for drinkNumber
@@ -49,5 +53,15 @@ public class Drink {
     // Setter for drinkCost
     public void setDrinkCost(double drinkCost) {
         this.drinkCost = drinkCost;
+    }
+
+    // Getter for inStock
+    public boolean isInStock() {
+        return inStock;
+    }
+
+    // Setter for inStock
+    public void setInStock(boolean inStock){
+        this.inStock = inStock;
     }
 }
