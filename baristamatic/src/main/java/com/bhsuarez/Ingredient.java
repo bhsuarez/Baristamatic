@@ -32,7 +32,6 @@ public class Ingredient {
     // Setter for ingredientInventoryCount
     public void setIngredientInventoryCount(int ingredientInventoryCount){
         this.ingredientInventoryCount = ingredientInventoryCount;
-
     }
 
     // Reduce ingredient inventory count by int argument
