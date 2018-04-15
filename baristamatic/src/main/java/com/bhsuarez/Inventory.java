@@ -25,6 +25,10 @@ public class Inventory{
     }
 
     // Add drinks to ArrayList
+
+    /*
+    Maybe add an argument and call it from Baristamatic. Copy and paste the drink info to that file
+     */
     public void addDrinks() {
         drinks.add(new Drink(1, "Coffee", 2.75, true));
         drinks.add(new Drink(2, "Decaf Coffee", 2.75, true));

@@ -6,10 +6,16 @@ public class Baristamatic {
 
     public static void main(String[] args){
 
-
+        // Define inventory object
         Inventory inventory = new Inventory();
+
+        // Add ingredients from Inventory object
         inventory.addIngredients();
+
+        // Add ingredients from Inventory object
         inventory.addDrinks();
+
+        System.out.println(inventory.getIngredients().get(0).getIngredientName()+","+inventory.getIngredients().get(0).getIngredientInventoryCount());
 
         /* Print out ingredient inventory
         System.out.println("Inventory:");
