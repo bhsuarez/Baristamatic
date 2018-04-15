@@ -15,16 +15,39 @@ public class Drink {
     private Ingredient[] ingredients = null;
 
     // Default constructor
-    public Drink(int drinkNumber, String drinkName,
-
-                 //This might need to be removed
-
-                 Ingredient[] ingredients
-                //
-
-    ) {
+    public Drink(int drinkNumber, String drinkName, double drinkCost) {
         this.drinkNumber = drinkNumber;
         this.drinkName = drinkName;
-        this.ingredients = ingredients;
+        this.drinkCost = drinkCost;
+    }
+
+    // Getter for drinkNumber
+    public int getDrinkNumber() {
+        return drinkNumber;
+    }
+
+    // Setter for drinkNumber
+    public void setDrinkNumber(int drinkNumber) {
+        this.drinkNumber = drinkNumber;
+    }
+
+    // Getter for drinkName
+    public String getDrinkName(){
+        return drinkName;
+    }
+
+    // Setter for drinkNAme
+    public void setDrinkName(String drinkName) {
+        this.drinkName = drinkName;
+    }
+
+    // Getter for drinkCost
+    public double getDrinkCost() {
+        return drinkCost;
+    }
+
+    // Setter for drinkCost
+    public void setDrinkCost(double drinkCost) {
+        this.drinkCost = drinkCost;
     }
 }
