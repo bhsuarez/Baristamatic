@@ -11,9 +11,6 @@ public class Drink {
     // Define drink cost
     private double drinkCost;
 
-    // Define array of drink ingredients
-    private Ingredient[] ingredients = null;
-
     // Define inStock boolean variable
     private boolean inStock;
 
@@ -65,3 +62,4 @@ public class Drink {
         this.inStock = inStock;
     }
 }
+

@@ -2,8 +2,8 @@
 
 ## Drink.java
 Creates a Drink object
-*   Accepts an int for drink number, a String for drink name, and a double for the drink price
-*   Setters and getters for drink number, name, and price
+*   Accepts an int for drink number, String for drink name, double for the drink price, and boolean for stock status
+*   Setters and getters for drink number, name, price, and stock status
 
 ## DrinkTest.java
 JUnit tests for Drink.java
