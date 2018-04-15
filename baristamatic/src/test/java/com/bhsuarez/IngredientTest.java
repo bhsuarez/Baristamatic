@@ -10,32 +10,24 @@ public class IngredientTest {
 
     @Before
     public void setUpIngredient(){
-        ingredient = new Ingredient("TestName",3.5,10);
-    }
-
-    @Test
-    public void testSetIngredientCost(){
-        ingredient.setIngredientCost(3);
+        ingredient = new Ingredient("Name",10);
     }
 
     @Test
     public void testSetIngredientName(){
         ingredient.setIngredientName("Test");
+        assertTrue("Test",true);
     }
 
     @Test
     public void testSetIngredientInventoryCount(){
         ingredient.setIngredientInventoryCount(10);
+        assertEquals(ingredient.getIngredientInventoryCount(),10,0);
     }
 
     @Test
     public void testGetIngredientName(){
         assertTrue(ingredient.getIngredientName(),true);
-    }
-
-    @Test
-    public void testGetIngredientCost(){
-        assertEquals(ingredient.getIngredientCost(),3.5,0);
     }
 
     @Test

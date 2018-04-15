@@ -5,15 +5,11 @@ public class Ingredient {
     // Define ingredient name
     public String ingredientName;
 
-    // Define ingredient cost per unit
-    public double ingredientPerUnitCost;
-
     // Define available inventory of ingredient
     public int ingredientInventoryCount;
 
     // Default Constructor
-    public Ingredient(String setName, double setCost, int setInventoryCount){
-        ingredientPerUnitCost = setCost;
+    public Ingredient(String setName, int setInventoryCount){
         ingredientName = setName;
         ingredientInventoryCount = setInventoryCount;
     }
@@ -23,24 +19,14 @@ public class Ingredient {
         return ingredientName;
     }
 
-    // Getter for ingredientCost
-    public double getIngredientCost() {
-        return ingredientPerUnitCost;
+    // Setter for ingredientName
+    public void setIngredientName(String ingredientName) {
+        this.ingredientName = ingredientName;
     }
 
     // Getter for ingredientInventoryCount
     public int getIngredientInventoryCount(){
         return ingredientInventoryCount;
-    }
-
-    // Setter for ingredientCost
-    public void setIngredientCost(double ingredientPerUnitCost) {
-        this.ingredientPerUnitCost = ingredientPerUnitCost;
-    }
-
-    // Setter for ingredientName
-    public void setIngredientName(String ingredientName) {
-        this.ingredientName = ingredientName;
     }
 
     // Setter for ingredientInventoryCount
