@@ -41,4 +41,13 @@ public class InventoryTest {
         inventory.makeDrink(0);
         assertTrue(true);
     }
+
+    // FIX ME
+    @Test
+    public void reloadIngredientInventory_Test(){
+        inventory.reloadIngredientInventory();
+        //
+        // Enter test here
+        //
+    }
 }

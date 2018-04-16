@@ -45,7 +45,48 @@ public class Inventory{
     // Checks to see if ingredients are in stock for desired drink, returns true or false
     public boolean ingredientsInStock(int drinkNumber){
         switch (drinkNumber){
+
+            //
             case 1:
+                if(ingredients.get(0).ingredientInventoryCount>=3
+                        && ingredients.get(2).ingredientInventoryCount>=1
+                        && ingredients.get(3).ingredientInventoryCount>=1){
+                    return true;
+                }
+
+            //
+            case 2:
+                if(ingredients.get(0).ingredientInventoryCount>=3
+                        && ingredients.get(2).ingredientInventoryCount>=1
+                        && ingredients.get(3).ingredientInventoryCount>=1){
+                    return true;
+                }
+            //
+            case 3:
+                if(ingredients.get(0).ingredientInventoryCount>=3
+                        && ingredients.get(2).ingredientInventoryCount>=1
+                        && ingredients.get(3).ingredientInventoryCount>=1){
+                    return true;
+                }
+
+            //
+            case 4:
+                if(ingredients.get(0).ingredientInventoryCount>=3
+                        && ingredients.get(2).ingredientInventoryCount>=1
+                        && ingredients.get(3).ingredientInventoryCount>=1){
+                    return true;
+                }
+
+            //
+            case 5:
+                if(ingredients.get(0).ingredientInventoryCount>=3
+                        && ingredients.get(2).ingredientInventoryCount>=1
+                        && ingredients.get(3).ingredientInventoryCount>=1){
+                    return true;
+                }
+
+            //
+            case 6:
                 if(ingredients.get(0).ingredientInventoryCount>=3
                         && ingredients.get(2).ingredientInventoryCount>=1
                         && ingredients.get(3).ingredientInventoryCount>=1){
@@ -59,17 +100,61 @@ public class Inventory{
 
     // Make drink method which uses ingredients to make drink if in stock
     public void makeDrink(int drinkNumber){
-        switch (drinkNumber){
-            case 1:
-                if(drinks.get(drinkNumber-1).isInStock()){
+        if(drinks.get(drinkNumber-1).isInStock() && ingredientsInStock(drinkNumber-1)){
+            switch (drinkNumber) {
+
+                //
+                case 1:
                     ingredients.get(0).useIngredient(3);
                     ingredients.get(2).useIngredient(1);
                     ingredients.get(3).useIngredient(1);
-                    System.out.println("Dispensing: "+drinks.get(drinkNumber-1).getDrinkName());
-                }
-                else {
-                    System.out.println("Out of stock: " + drinks.get(drinkNumber - 1).getDrinkName());
-                }
+                    System.out.println("Dispensing: " + drinks.get(drinkNumber - 1).getDrinkName());
+
+                    //
+                    case 2:
+                    ingredients.get(0).useIngredient(3);
+                    ingredients.get(2).useIngredient(1);
+                    ingredients.get(3).useIngredient(1);
+                    System.out.println("Dispensing: " + drinks.get(drinkNumber - 1).getDrinkName());
+
+                    //
+                    case 3:
+                    ingredients.get(0).useIngredient(3);
+                    ingredients.get(2).useIngredient(1);
+                    ingredients.get(3).useIngredient(1);
+                    System.out.println("Dispensing: " + drinks.get(drinkNumber - 1).getDrinkName());
+
+                    //
+                    case 4:
+                    ingredients.get(0).useIngredient(3);
+                    ingredients.get(2).useIngredient(1);
+                    ingredients.get(3).useIngredient(1);
+                    System.out.println("Dispensing: " + drinks.get(drinkNumber - 1).getDrinkName());
+
+                    //
+                    case 5:
+                    ingredients.get(0).useIngredient(3);
+                    ingredients.get(2).useIngredient(1);
+                    ingredients.get(3).useIngredient(1);
+                    System.out.println("Dispensing: " + drinks.get(drinkNumber - 1).getDrinkName());
+
+                    //
+                    case 6:
+                    ingredients.get(0).useIngredient(3);
+                    ingredients.get(2).useIngredient(1);
+                    ingredients.get(3).useIngredient(1);
+                    System.out.println("Dispensing: " + drinks.get(drinkNumber - 1).getDrinkName());
+            }
+        }
+        else {
+            System.out.println("Out of stock: " + drinks.get(drinkNumber - 1).getDrinkName());
+        }
+    }
+
+    // Reload ingredients inventory
+    public void reloadIngredientInventory(){
+        for(int i=0; i < ingredients.size(); i++){
+            ingredients.get(i).reloadIngredientCount();
         }
     }
 }
