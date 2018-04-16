@@ -1,5 +1,4 @@
 package com.bhsuarez;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Baristamatic {
@@ -14,6 +13,17 @@ public class Baristamatic {
 
         // Add ingredients from Inventory object
         inventory.addDrinks();
+
+        // Scanner object
+        Scanner scan = new Scanner(System.in);
+
+        // String variable for drink selection
+        String selection = scan.nextLine();
+
+
+        //
+        // LOOP GOES HERE
+        //
 
         // Print out ingredient inventory
         System.out.println("Inventory:");
@@ -30,29 +40,18 @@ public class Baristamatic {
                                 inventory.getDrinks().get(i).isInStock());
         }
 
-        /* Scanner object
-        System.out.print("Enter your selection: ");
-        Scanner scan = new Scanner(System.in);
-        int selection = scan.nextInt();
+        // TESTING
+        inventory.makeDrink(1);
 
-        while(selection<1 || selection>6){
-            if(scan.nextInt()<1 || scan.nextInt()>6){
-                System.out.println("Invalid selection: "+selection);
-                selection = scan.nextInt();
-            }
+        System.out.println("Inventory:");
+        for(int i=0; i <inventory.getIngredients().size(); i++) {
+            System.out.println(inventory.getIngredients().get(i).getIngredientName() + "," + inventory.getIngredients().get(i).getIngredientInventoryCount());
         }
 
-        if (selection==1){
 
-            /*
-            Logic to see if ingredients are in stock
-
-
-
-            System.out.println("Dispensing: "+drinks.get(selection-1).getDrinkName());
-
-        }
-*/
+        //
+        //LOOP ENDS HERE
+        //
 
     }
 }
