@@ -1,6 +1,4 @@
 package com.bhsuarez;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Inventory{
@@ -25,10 +23,6 @@ public class Inventory{
     }
 
     // Add drinks to ArrayList
-
-    /*
-    Maybe add an argument and call it from Baristamatic. Copy and paste the drink info to that file
-     */
     public void addDrinks() {
         drinks.add(new Drink(1, "Coffee", 2.75, true));
         drinks.add(new Drink(2, "Decaf Coffee", 2.75, true));
@@ -38,11 +32,84 @@ public class Inventory{
         drinks.add(new Drink(6, "Cappuccino", 2.90, true));
     }
 
+    // Return drink menu from ArrayList<Drink>
     public ArrayList<Drink> getDrinks() {
         return drinks;
     }
 
+    // Return ingredients inventory from ArrayList<Ingredient>
     public ArrayList<Ingredient> getIngredients(){
         return ingredients;
+    }
+
+    public boolean ingredientsInStock(int drinkNumber){
+        switch (drinkNumber){
+            case 1:
+                if(ingredients.get(0).ingredientInventoryCount>=3
+                        && ingredients.get(2).ingredientInventoryCount>=1
+                        && ingredients.get(3).ingredientInventoryCount>=1){
+                    return true;
+                }
+        }
+        return true;
+    }
+
+    // Make drink method
+    public void makeDrink(int drinkNumber){
+        switch (drinkNumber){
+            case 1:
+                if(ingredients.get(0).ingredientInventoryCount>=3
+                        && ingredients.get(2).ingredientInventoryCount>=1
+                        && ingredients.get(3).ingredientInventoryCount>=1){
+                    System.out.println("Dispensing: "+drinks.get(drinkNumber-1).getDrinkName());
+                    ingredients.get(0).useIngredient(3);
+                    ingredients.get(2).useIngredient(1);
+                    ingredients.get(3).useIngredient(1);
+                }
+                else {
+                    drinks.get(drinkNumber-1).setInStock(false);
+                    System.out.println("Out of stock: " + drinks.get(drinkNumber - 1).getDrinkName());
+                }
+//            case 2:
+//                if(ingredients.get(0).ingredientInventoryCount>=3
+//                        && ingredients.get(2).ingredientInventoryCount>=1
+//                        && ingredients.get(3).ingredientInventoryCount>=1){
+//                    ingredients.get(0).useIngredient(3);
+//                    ingredients.get(2).useIngredient(1);
+//                    ingredients.get(3).useIngredient(1);
+//                }
+//            case 3:
+//                if(ingredients.get(0).ingredientInventoryCount>=3
+//                        && ingredients.get(2).ingredientInventoryCount>=1
+//                        && ingredients.get(3).ingredientInventoryCount>=1){
+//                    ingredients.get(0).useIngredient(3);
+//                    ingredients.get(2).useIngredient(1);
+//                    ingredients.get(3).useIngredient(1);
+//                }
+//            case 4:
+//                if(ingredients.get(0).ingredientInventoryCount>=3
+//                        && ingredients.get(2).ingredientInventoryCount>=1
+//                        && ingredients.get(3).ingredientInventoryCount>=1){
+//                    ingredients.get(0).useIngredient(3);
+//                    ingredients.get(2).useIngredient(1);
+//                    ingredients.get(3).useIngredient(1);
+//                }
+//            case 5:
+//                if(ingredients.get(0).ingredientInventoryCount>=3
+//                        && ingredients.get(2).ingredientInventoryCount>=1
+//                        && ingredients.get(3).ingredientInventoryCount>=1){
+//                    ingredients.get(0).useIngredient(3);
+//                    ingredients.get(2).useIngredient(1);
+//                    ingredients.get(3).useIngredient(1);
+//                }
+//            case 6:
+//                if(ingredients.get(0).ingredientInventoryCount>=3
+//                        && ingredients.get(2).ingredientInventoryCount>=1
+//                        && ingredients.get(3).ingredientInventoryCount>=1){
+//                    ingredients.get(0).useIngredient(3);
+//                    ingredients.get(2).useIngredient(1);
+//                    ingredients.get(3).useIngredient(1);
+//                }
+        }
     }
 }
