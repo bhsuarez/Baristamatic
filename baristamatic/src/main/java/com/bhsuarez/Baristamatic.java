@@ -15,21 +15,22 @@ public class Baristamatic {
         // Add ingredients from Inventory object
         inventory.addDrinks();
 
-        System.out.println(inventory.getIngredients().get(0).getIngredientName()+","+inventory.getIngredients().get(0).getIngredientInventoryCount());
-
-        /* Print out ingredient inventory
+        // Print out ingredient inventory
         System.out.println("Inventory:");
-        for(int i=0; i<ingredients.size();i++) {
-            System.out.println(ingredients.get(i).getIngredientName() + "," + ingredients.get(i).getIngredientInventoryCount());
+        for(int i=0; i <inventory.getIngredients().size(); i++) {
+            System.out.println(inventory.getIngredients().get(i).getIngredientName() + "," + inventory.getIngredients().get(i).getIngredientInventoryCount());
         }
 
-        // Print out drink menu
-        System.out.println("Menu:");
-        for(int i=0; i<drinks.size();i++){
-            System.out.println(drinks.get(i).getDrinkNumber()+","+drinks.get(i).getDrinkName()+",$"+drinks.get(i).getDrinkCost()+","+drinks.get(i).isInStock());
+        // Print out drinks menu
+        System.out.println("Menu: ");
+        for(int i=0; i <inventory.getDrinks().size(); i++) {
+            System.out.println(inventory.getDrinks().get(i).getDrinkNumber() + "," +
+                                inventory.getDrinks().get(i).getDrinkName() + ",$"+
+                                inventory.getDrinks().get(i).getDrinkCost() + ","+
+                                inventory.getDrinks().get(i).isInStock());
         }
 
-        //Scanner object
+        /* Scanner object
         System.out.print("Enter your selection: ");
         Scanner scan = new Scanner(System.in);
         int selection = scan.nextInt();
