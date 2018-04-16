@@ -11,15 +11,15 @@ public class Inventory{
 
     // Add ingredients to ArrayList
     public void addIngredients() {
-        ingredients.add(new Ingredient("Coffee", 10));
-        ingredients.add(new Ingredient("Decaf Coffee", 10));
-        ingredients.add(new Ingredient("Sugar", 10));
-        ingredients.add(new Ingredient("Cream", 10));
-        ingredients.add(new Ingredient("Steamed Milk", 10));
-        ingredients.add(new Ingredient("Foamed Milk", 10));
-        ingredients.add(new Ingredient("Espresso", 10));
-        ingredients.add(new Ingredient("Cocoa", 10));
-        ingredients.add(new Ingredient("Whipped Cream", 10));
+        ingredients.add(new Ingredient(1,"Coffee", 10));
+        ingredients.add(new Ingredient(2,"Decaf Coffee", 10));
+        ingredients.add(new Ingredient(3,"Sugar", 10));
+        ingredients.add(new Ingredient(4,"Cream", 10));
+        ingredients.add(new Ingredient(5,"Steamed Milk", 10));
+        ingredients.add(new Ingredient(6,"Foamed Milk", 10));
+        ingredients.add(new Ingredient(7,"Espresso", 10));
+        ingredients.add(new Ingredient(8,"Cocoa", 10));
+        ingredients.add(new Ingredient(9,"Whipped Cream", 10));
     }
 
     // Add drinks to ArrayList
@@ -44,52 +44,20 @@ public class Inventory{
 
     // Checks to see if ingredients are in stock for desired drink, returns true or false
     public boolean ingredientsInStock(int drinkNumber){
-        switch (drinkNumber){
+        switch (drinkNumber-1){
 
             //
             case 1:
-                if(ingredients.get(0).ingredientInventoryCount>=3
-                        && ingredients.get(2).ingredientInventoryCount>=1
-                        && ingredients.get(3).ingredientInventoryCount>=1){
+                if(ingredients.get(0).ingredientInventoryCount>3){
                     return true;
                 }
+                else
+                    return false;
 
             //
             case 2:
-                if(ingredients.get(0).ingredientInventoryCount>=3
-                        && ingredients.get(2).ingredientInventoryCount>=1
-                        && ingredients.get(3).ingredientInventoryCount>=1){
-                    return true;
-                }
-            //
-            case 3:
-                if(ingredients.get(0).ingredientInventoryCount>=3
-                        && ingredients.get(2).ingredientInventoryCount>=1
-                        && ingredients.get(3).ingredientInventoryCount>=1){
-                    return true;
-                }
-
-            //
-            case 4:
-                if(ingredients.get(0).ingredientInventoryCount>=3
-                        && ingredients.get(2).ingredientInventoryCount>=1
-                        && ingredients.get(3).ingredientInventoryCount>=1){
-                    return true;
-                }
-
-            //
-            case 5:
-                if(ingredients.get(0).ingredientInventoryCount>=3
-                        && ingredients.get(2).ingredientInventoryCount>=1
-                        && ingredients.get(3).ingredientInventoryCount>=1){
-                    return true;
-                }
-
-            //
-            case 6:
-                if(ingredients.get(0).ingredientInventoryCount>=3
-                        && ingredients.get(2).ingredientInventoryCount>=1
-                        && ingredients.get(3).ingredientInventoryCount>=1){
+                if(ingredients.get(6).ingredientInventoryCount>2
+                        || ingredients.get(4).ingredientInventoryCount>1){
                     return true;
                 }
                 else
@@ -109,41 +77,15 @@ public class Inventory{
                     ingredients.get(2).useIngredient(1);
                     ingredients.get(3).useIngredient(1);
                     System.out.println("Dispensing: " + drinks.get(drinkNumber - 1).getDrinkName());
+                    break;
 
-                    //
-                    case 2:
+                //
+                case 2:
                     ingredients.get(0).useIngredient(3);
                     ingredients.get(2).useIngredient(1);
                     ingredients.get(3).useIngredient(1);
                     System.out.println("Dispensing: " + drinks.get(drinkNumber - 1).getDrinkName());
-
-                    //
-                    case 3:
-                    ingredients.get(0).useIngredient(3);
-                    ingredients.get(2).useIngredient(1);
-                    ingredients.get(3).useIngredient(1);
-                    System.out.println("Dispensing: " + drinks.get(drinkNumber - 1).getDrinkName());
-
-                    //
-                    case 4:
-                    ingredients.get(0).useIngredient(3);
-                    ingredients.get(2).useIngredient(1);
-                    ingredients.get(3).useIngredient(1);
-                    System.out.println("Dispensing: " + drinks.get(drinkNumber - 1).getDrinkName());
-
-                    //
-                    case 5:
-                    ingredients.get(0).useIngredient(3);
-                    ingredients.get(2).useIngredient(1);
-                    ingredients.get(3).useIngredient(1);
-                    System.out.println("Dispensing: " + drinks.get(drinkNumber - 1).getDrinkName());
-
-                    //
-                    case 6:
-                    ingredients.get(0).useIngredient(3);
-                    ingredients.get(2).useIngredient(1);
-                    ingredients.get(3).useIngredient(1);
-                    System.out.println("Dispensing: " + drinks.get(drinkNumber - 1).getDrinkName());
+                    break;
             }
         }
         else {

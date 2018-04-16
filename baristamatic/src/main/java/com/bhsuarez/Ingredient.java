@@ -2,6 +2,9 @@ package com.bhsuarez;
 
 public class Ingredient {
 
+    // Define ingredient number
+    public int ingredientNumber;
+
     // Define ingredient name
     public String ingredientName;
 
@@ -9,9 +12,10 @@ public class Ingredient {
     public int ingredientInventoryCount;
 
     // Default Constructor
-    public Ingredient(String setName, int setInventoryCount){
+    public Ingredient(int setNumber, String setName, int setInventoryCount){
         ingredientName = setName;
         ingredientInventoryCount = setInventoryCount;
+        ingredientNumber = setNumber;
     }
 
     // Getter for ingredientName

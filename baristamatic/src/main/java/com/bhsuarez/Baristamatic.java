@@ -20,7 +20,10 @@ public class Baristamatic {
         // Selection variable
         String selection = " ";
 
-        // While loop for selection
+        // Selection int
+        int selectionInt;
+
+        // While loop for selection, q for quit
         while (selection.charAt(0) != 'q') {
 
             // Print out ingredient inventory
@@ -42,14 +45,27 @@ public class Baristamatic {
             // Prompt for drink selection
             System.out.print("Please enter a drink selection [1-6] [q] to quit or [r] to refill ingredients: ");
             selection = scan.next();
+            selection = selection.toLowerCase();
 
-            // Reload inventory ingredients
-            if(selection.charAt(0) == 'r' || selection.charAt(0) == 'R'){
-                inventory.reloadIngredientInventory();
+            // Make drink
+            if(selection.charAt(0) != 'r' && selection.charAt(0) != 'q'){
+                selectionInt = Integer.parseInt(selection);
+
+                // If ingredients are in stock, make drink
+                if(inventory.ingredientsInStock(selectionInt)){
+                    inventory.makeDrink(selectionInt);
+                }
+                else{
+                    System.out.println("Out of stock!");
+
+                    break;
+                }
             }
 
-            // TESTING
-            //inventory.makeDrink(Integer.parseInt(selection.charAt(0)));
+            // Reload inventory ingredients
+            if(selection.charAt(0) == 'r'){
+                inventory.reloadIngredientInventory();
+            }
 
         }
         System.out.println("Goodbye!");

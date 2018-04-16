@@ -11,7 +11,7 @@ public class IngredientTest {
     // Initializer for ingredient object
     @Before
     public void setUpIngredient(){
-        ingredient = new Ingredient("Name",10);
+        ingredient = new Ingredient(0,"Name",10);
     }
 
     // Test for setIngredientName()
