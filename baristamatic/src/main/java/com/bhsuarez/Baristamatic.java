@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Baristamatic {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
         // Define inventory object
         Inventory inventory = new Inventory();
@@ -17,40 +17,41 @@ public class Baristamatic {
         // Scanner object
         Scanner scan = new Scanner(System.in);
 
-        // String variable for drink selection
-        //String selection = scan.nextLine();
+        // Selection variable
+        String selection = " ";
 
-        //
-        // LOOP GOES HERE
-        //
+        // While loop for selection
+        while (selection.charAt(0) != 'q') {
 
-        // Print out ingredient inventory
-        System.out.println("Inventory:");
-        for(int i=0; i <inventory.getIngredients().size(); i++) {
-            System.out.println(inventory.getIngredients().get(i).getIngredientName() + "," + inventory.getIngredients().get(i).getIngredientInventoryCount());
+            // Print out ingredient inventory
+            System.out.println("Inventory:");
+            for (int i = 0; i < inventory.getIngredients().size(); i++) {
+                System.out.println(inventory.getIngredients().get(i).getIngredientName() + "," +
+                        inventory.getIngredients().get(i).getIngredientInventoryCount());
+            }
+
+            // Print out drinks menu
+            System.out.println("Menu: ");
+            for (int i = 0; i < inventory.getDrinks().size(); i++) {
+                System.out.println(inventory.getDrinks().get(i).getDrinkNumber() + "," +
+                        inventory.getDrinks().get(i).getDrinkName() + ",$" +
+                        inventory.getDrinks().get(i).getDrinkCost() + "," +
+                        inventory.getDrinks().get(i).isInStock());
+            }
+
+            // Prompt for drink selection
+            System.out.print("Please enter a drink selection [1-6] [q] to quit or [r] to refill ingredients: ");
+            selection = scan.next();
+
+            // Reload inventory ingredients
+            if(selection.charAt(0) == 'r' || selection.charAt(0) == 'R'){
+                inventory.reloadIngredientInventory();
+            }
+
+            // TESTING
+            //inventory.makeDrink(Integer.parseInt(selection.charAt(0)));
+
         }
-
-        // Print out drinks menu
-        System.out.println("Menu: ");
-        for(int i=0; i <inventory.getDrinks().size(); i++) {
-            System.out.println(inventory.getDrinks().get(i).getDrinkNumber() + "," +
-                                inventory.getDrinks().get(i).getDrinkName() + ",$"+
-                                inventory.getDrinks().get(i).getDrinkCost() + ","+
-                                inventory.getDrinks().get(i).isInStock());
-        }
-
-        // TESTING
-        inventory.makeDrink(1);
-
-        System.out.println("Inventory:");
-        for(int i=0; i <inventory.getIngredients().size(); i++) {
-            System.out.println(inventory.getIngredients().get(i).getIngredientName() + "," + inventory.getIngredients().get(i).getIngredientInventoryCount());
-        }
-
-
-        //
-        //LOOP ENDS HERE
-        //
-
+        System.out.println("Goodbye!");
     }
 }
