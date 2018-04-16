@@ -18,8 +18,7 @@ public class Baristamatic {
         Scanner scan = new Scanner(System.in);
 
         // String variable for drink selection
-        String selection = scan.nextLine();
-
+        //String selection = scan.nextLine();
 
         //
         // LOOP GOES HERE
