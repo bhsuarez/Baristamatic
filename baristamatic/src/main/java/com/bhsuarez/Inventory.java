@@ -175,10 +175,14 @@ public class Inventory{
         }
     }
 
-    // Reload ingredients inventory
+    // Reload ingredients inventory & sets all drinks to in stock
     public void reloadIngredientInventory(){
         for (Ingredient ingredient : ingredients) {
             ingredient.reloadIngredientCount();
+
+        }
+        for (int i=0;i<drinks.size();i++){
+            drinks.get(i).setInStock(true);
         }
     }
 }
