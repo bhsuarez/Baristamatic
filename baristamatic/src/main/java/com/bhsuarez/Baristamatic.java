@@ -17,11 +17,8 @@ public class Baristamatic {
         // Scanner object
         Scanner scan = new Scanner(System.in);
 
-        // Selection variable
+        // Empty String for Selection variable
         String selection = " ";
-
-        // Selection int
-        int selectionInt;
 
         // While loop for selection, q for quit
         while (selection.charAt(0) != 'q') {
@@ -47,18 +44,29 @@ public class Baristamatic {
             selection = scan.next();
             selection = selection.toLowerCase();
 
-            // Make drink
+
             if(selection.charAt(0) != 'r' && selection.charAt(0) != 'q'){
-                selectionInt = Integer.parseInt(selection);
+                int selectionInt = Integer.parseInt(selection);
 
                 // If ingredients are in stock, make drink
-                if(inventory.ingredientsInStock(selectionInt)){
+                if(inventory.drinkInStock(selectionInt)){
                     inventory.makeDrink(selectionInt);
                 }
-                else{
-                    System.out.println("Out of stock!");
 
-                    break;
+                // If ingredients are not in stock...
+                else{
+
+                    // Loop while inventory is not in stock
+                    while(!inventory.drinkInStock(selectionInt)){
+                        System.out.println("Out of stock: "+inventory.getDrinks().get(selectionInt).getDrinkName());
+                        System.out.print("Choose another selection: ");
+                        selection = scan.next();
+                        selection = selection.toLowerCase();
+                        selectionInt = Integer.parseInt(selection);
+                            if(inventory.drinkInStock(selectionInt)){
+                            inventory.makeDrink(selectionInt);
+                            }
+                    }
                 }
             }
 
@@ -68,6 +76,8 @@ public class Baristamatic {
             }
 
         }
+
+        // Farewell
         System.out.println("Goodbye!");
     }
 }
