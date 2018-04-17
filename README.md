@@ -31,6 +31,7 @@ Creates an Inventory object.
 *   reloadIngredientInventory() reloads Ingredient inventory of selected Drink object
 
 ## InventoryTest.java
+JUnit tests for Inventory.java
 
 ## Baristamatic.java
 Uses the Drink, Ingredient, and Inventory classes to create a drink from the Baristamatic machine
