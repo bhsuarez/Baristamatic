@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Baristamatic {
 
-    public static void main(String[] args) {
+    public static void main(String[] args){
 
         // Define inventory object
         Inventory inventory = new Inventory();
@@ -42,11 +42,29 @@ public class Baristamatic {
             // Prompt for drink selection
             System.out.print("Please enter a drink selection [1-6] [q] to quit or [r] to refill ingredients: ");
             selection = scan.next();
+
+            // Make lowercase String
             selection = selection.toLowerCase();
 
 
+
+            // If not 'r' or 'q'
             if(selection.charAt(0) != 'r' && selection.charAt(0) != 'q'){
                 int selectionInt = Integer.parseInt(selection);
+
+                // While loop for out of bound values
+                while(selectionInt>inventory.getDrinks().size() || selectionInt<=0){
+                    System.out.println("INCORRECT VALUE: "+selectionInt);
+                    System.out.print("Please enter a drink selection [1-6] [q] to quit or [r] to refill ingredients: ");
+                    selection = scan.next();
+                    selection = selection.toLowerCase();
+
+                    // Refill then break
+                    if(selection.charAt(0) == 'r'){
+                        inventory.reloadIngredientInventory();
+                        break;
+                    }
+                }
 
                 // If ingredients are in stock, make drink
                 if(inventory.drinkInStock(selectionInt)){
@@ -58,11 +76,29 @@ public class Baristamatic {
 
                     // Loop while inventory is not in stock
                     while(!inventory.drinkInStock(selectionInt)){
-                        System.out.println("Out of stock: "+inventory.getDrinks().get(selectionInt).getDrinkName());
-                        System.out.print("Choose another selection: ");
+                        System.out.println("OUT OF STOCK: "+inventory.getDrinks().get(selectionInt-1).getDrinkName());
+                        System.out.print("Please enter a drink selection [1-6] [q] to quit or [r] to refill ingredients: ");
                         selection = scan.next();
                         selection = selection.toLowerCase();
+
+                        if(selection.charAt(0)== 'q'){
+                            break;
+                        }
+
+                        // Refill then break
+                        if(selection.charAt(0) == 'r'){
+                            inventory.reloadIngredientInventory();
+                            break;
+                        }
+
                         selectionInt = Integer.parseInt(selection);
+
+                        // While loop for out of bound values
+                        while(selectionInt>inventory.getDrinks().size() || selectionInt<=0){
+                            System.out.println("INCORRECT VALUE: "+selectionInt);
+                            System.out.print("Please enter a drink selection [1-6] [q] to quit or [r] to refill ingredients: ");
+                            selectionInt = scan.nextInt();
+                        }
                             if(inventory.drinkInStock(selectionInt)){
                             inventory.makeDrink(selectionInt);
                             }
@@ -74,7 +110,6 @@ public class Baristamatic {
             if(selection.charAt(0) == 'r'){
                 inventory.reloadIngredientInventory();
             }
-
         }
 
         // Farewell
