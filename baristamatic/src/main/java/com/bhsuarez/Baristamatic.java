@@ -20,6 +20,9 @@ public class Baristamatic {
         // Empty String for Selection variable
         String selection = " ";
 
+
+
+
         // While loop for selection, q for quit
         while (selection.charAt(0) != 'q') {
 
@@ -64,7 +67,9 @@ public class Baristamatic {
                     }
                 }
 
-                // If ingredients are in stock, make drink
+                /*
+                /If ingredients are in stock, make drink
+                  */
                 if(inventory.drinkInStock(selectionInt)){
                     inventory.makeDrink(selectionInt);
                 }
@@ -74,42 +79,8 @@ public class Baristamatic {
                  If ingredients are not in stock...
                  */
                 else{
-
-                    // Loop while inventory is not in stock
-                    while(!inventory.drinkInStock(selectionInt)){
-                        System.out.println("OUT OF STOCK: "+inventory.getDrinks().get(selectionInt-1).getDrinkName());
-                        System.out.print("Please enter a drink selection [1-6] [q] to quit or [r] to refill ingredients: ");
-                        selection = scan.next();
-                        selection = selection.toLowerCase();
-
-                        if(selection.charAt(0)== 'q'){
-                            break;
-                        }
-
-                        // Refill then break
-                        if(selection.charAt(0) == 'r'){
-                            inventory.reloadIngredientInventory();
-                            break;
-                        }
-
-                        selectionInt = Integer.parseInt(selection);
-
-                        // While loop for out of bound values
-                        while(selectionInt>inventory.getDrinks().size() || selectionInt<=0){
-                            System.out.println("INCORRECT VALUE: "+selectionInt);
-                            System.out.print("Please enter a drink selection [1-6] [q] to quit or [r] to refill ingredients: ");
-                            selectionInt = scan.nextInt();
-                        }
-                            if(inventory.drinkInStock(selectionInt)){
-                            inventory.makeDrink(selectionInt);
-                            }
-                    }
+                    System.out.println("OUT OF STOCK: "+inventory.getDrinks().get(selectionInt).getDrinkName());
                 }
-            }
-
-            // Reload inventory ingredients
-            if(selection.charAt(0) == 'r'){
-                inventory.reloadIngredientInventory();
             }
         }
 
