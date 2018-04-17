@@ -19,6 +19,23 @@ Creates an Ingredient object.
 ## IngredientTest.java
 JUnit unit tests for Ingredient.java
 
-## Baristamatic.java
+## Inventory.java
+Creates an Inventory object.
 
-## BaristamaticTest.java
+*   addIngredients() adds ArrayList of Ingredients object to Inventory object
+*   addDrinks() adds ArrayList of Drink objects to Inventory
+*   getDrinks() returns ArrayList of Drink objects
+*   getIngredients() returns ArrayList of Ingredient objects
+*   drinkInStock() returns boolean value if Drink object is in stock
+*   makeDrink() creates chosen drink using useIngredient() method
+*   reloadIngredientInventory() reloads Ingredient inventory of selected Drink object
+
+## InventoryTest.java
+
+## Baristamatic.java
+Uses the Drink, Ingredient, and Inventory classes to create a drink from the Baristamatic machine
+*   Prompts user for drink number [1-6]
+*   Enter 'r' to reload all ingredient inventories to 10
+*   Enter 'q' to quit Baristamatic
+*   Outputs inventory levels plus menu
+*   Shows if drink is out of stock based upon ingredient levels
