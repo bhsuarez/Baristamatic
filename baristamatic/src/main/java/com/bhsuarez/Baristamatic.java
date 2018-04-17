@@ -1,9 +1,10 @@
 package com.bhsuarez;
+
 import java.util.Scanner;
 
 public class Baristamatic {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
         // Define inventory object
         Inventory inventory = new Inventory();
@@ -19,6 +20,8 @@ public class Baristamatic {
 
         // Empty String for Selection variable
         String selection = " ";
+
+        int selectionInt;
 
         // While loop for selection, q for quit
         while (selection.charAt(0) != 'q') {
@@ -43,27 +46,48 @@ public class Baristamatic {
             System.out.print("Please enter a drink selection [1-6] [q] to quit or [r] to refill ingredients: ");
             selection = scan.next();
 
-            // Make lowercase String
+            // Make lowercase String if string
             selection = selection.toLowerCase();
 
-            if(selection.charAt(0) == 'r'){
+            // If selection is 'r' reloadIngredientInventory()
+            if (selection.charAt(0) == 'r') {
                 inventory.reloadIngredientInventory();
             }
 
-            // If not 'r' or 'q'
-            if(selection.charAt(0) != 'r' && selection.charAt(0) != 'q'){
-                int selectionInt = Integer.parseInt(selection);
+            // If selection matches int value, parse String into int
+            if (selection.matches("\\d+")) {
+                selectionInt = Integer.parseInt(selection);
 
                 // While loop for out of bound values
-                while(selectionInt>inventory.getDrinks().size() || selectionInt<=0){
-                    System.out.println("INCORRECT VALUE: "+selectionInt);
-                    break;
+                while (selectionInt <= 0 || selectionInt > inventory.getDrinks().size()) {
+
+                    // If selectionInt js greater than size or selectionInt is less than 0
+                    if (selectionInt > inventory.getDrinks().size() || selectionInt <= 0) {
+                        System.out.println("INCORRECT VALUE: " + selectionInt);
+                        System.out.print("Please enter a drink selection [1-6] [q] to quit or [r] to refill ingredients: ");
+                        selection = scan.next();
+
+                        // If selection is 'r' reloadIngredientInventory()
+                        if (selection.charAt(0) == 'r') {
+                            inventory.reloadIngredientInventory();
+                        }
+
+                        // If selection is 'q', then quit
+                        if (selection.charAt(0) == 'q'){
+                            break;
+                        }
+                        if (selection.charAt(0) != 'r' || selection.charAt(0) != 'q' || selectionInt <=0 || selectionInt > inventory.getDrinks().size()){
+                            System.out.println("INCORRECT VALUE: " + selectionInt);
+                            System.out.print("Please enter a drink selection [1-6] [q] to quit or [r] to refill ingredients: ");
+                            selection = scan.next();
+                        }
+                    }
                 }
 
                 /*
                 /If ingredients are in stock, make drink
                   */
-                if(inventory.drinkInStock(selectionInt)){
+                if (inventory.drinkInStock(selectionInt)) {
                     inventory.makeDrink(selectionInt);
                 }
 
@@ -71,8 +95,8 @@ public class Baristamatic {
                  *
                  If ingredients are not in stock...
                  */
-                else{
-                    System.out.println("OUT OF STOCK: "+inventory.getDrinks().get(selectionInt-1).getDrinkName());
+                else {
+                    System.out.println("OUT OF STOCK: " + inventory.getDrinks().get(selectionInt - 1).getDrinkName());
                 }
             }
         }
