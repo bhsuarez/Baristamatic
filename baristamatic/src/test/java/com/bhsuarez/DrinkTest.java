@@ -11,60 +11,78 @@ public class DrinkTest {
     // Initializer for Drink object
     @Before
     public void setDrink() {
-        this.drink = new Drink(0,"Test",0,false);
-        assertEquals(this.drink,drink);
+        drink = new Drink(0,"Test",0,false);
     }
 
     // Test for getDrinkNumber()
     @Test
     public void getDrinkNumber_Zero_True(){
-        assertTrue(drink.getDrinkNumber()==0);
+        assertEquals(drink.getDrinkNumber(),0);
     }
 
-    // Test for setDrinkNumber()
+    // Test for setDrinkNumber() less than zero
     @Test
-    public void setDrinkNumber_Test(){
-        drink.setDrinkNumber(0);
-        assertEquals(drink.getDrinkNumber(),0,0);
+    public void setDrinkNumber_Less_Than_Zero(){
+        drink.setDrinkNumber(-1);
+        assertTrue(drink.getDrinkNumber()<0);
     }
 
-    // Test for getDrinkName()
+    // Test for setDrinkNumber() out of bounds
     @Test
-    public void getDrinkName_Null_True(){
+    public void setDrinkNumber_Greater_Than_Six(){
+        drink.setDrinkNumber(7);
+        assertTrue(drink.getDrinkNumber()>6);
+    }
+
+    // Test for getDrinkName() True
+    @Test
+    public void getDrinkName_True(){
         assertTrue(drink.getDrinkName(),true);
     }
 
-    // Test for setDrinkName()
+    // Test for getDrinkName() False
     @Test
-    public void setDrinkName_Test(){
-        drink.setDrinkName("Test");
-        assertTrue(drink.getDrinkName(),true);
+    public void getDrinkName_False(){
+        assertFalse(drink.getDrinkName(),false);
     }
 
-    // Test for getDrinkCost()
+    // Test for setDrinkName() Null test
+    @Test
+    public void setDrinkName_Null_Test(){
+        drink.setDrinkName(null);
+        assertNull(drink.getDrinkName());
+    }
+
+    // Test for setDrinkName() Empty test
+    @Test
+    public void setDrinkName_Empty_Test(){
+        drink.setDrinkName("");
+        assertEquals(drink.getDrinkName(),"");
+    }
+
+    // Test for getDrinkCost() True test
     @Test
     public void getDrinkCost_Zero_True(){
-        assertTrue(drink.getDrinkCost()==0.0);
-    }
-
-    // Test for setDrinkCost()
-    @Test
-    public void setDrinkCost_Test(){
-        drink.setDrinkCost(0.0);
         assertEquals(drink.getDrinkCost(),0,0);
     }
 
-    //Test for getInStock()
+    // Test for setDrinkCost() less than zero
+    @Test
+    public void setDrinkCost_Less_Than_Zero_Test(){
+        drink.setDrinkCost(-1);
+        assertTrue(drink.getDrinkCost()<0);
+    }
+
+    //Test for getInStock() False
     @Test
     public void getInStock_False(){
         assertFalse(drink.isInStock());
     }
 
+    //Test for getInStock() True
     @Test
-    //Test for setInStock()
-    public void setInStock_Test(){
+    public void getInStock_True(){
         drink.setInStock(true);
         assertTrue(drink.isInStock());
     }
-
 }
