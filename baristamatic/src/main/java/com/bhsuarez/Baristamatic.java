@@ -20,9 +20,6 @@ public class Baristamatic {
         // Empty String for Selection variable
         String selection = " ";
 
-
-
-
         // While loop for selection, q for quit
         while (selection.charAt(0) != 'q') {
 
@@ -49,6 +46,10 @@ public class Baristamatic {
             // Make lowercase String
             selection = selection.toLowerCase();
 
+            if(selection.charAt(0) == 'r'){
+                inventory.reloadIngredientInventory();
+            }
+
             // If not 'r' or 'q'
             if(selection.charAt(0) != 'r' && selection.charAt(0) != 'q'){
                 int selectionInt = Integer.parseInt(selection);
@@ -56,15 +57,7 @@ public class Baristamatic {
                 // While loop for out of bound values
                 while(selectionInt>inventory.getDrinks().size() || selectionInt<=0){
                     System.out.println("INCORRECT VALUE: "+selectionInt);
-                    System.out.print("Please enter a drink selection [1-6] [q] to quit or [r] to refill ingredients: ");
-                    selection = scan.next();
-                    selection = selection.toLowerCase();
-
-                    // Refill then break
-                    if(selection.charAt(0) == 'r'){
-                        inventory.reloadIngredientInventory();
-                        break;
-                    }
+                    break;
                 }
 
                 /*
@@ -79,7 +72,7 @@ public class Baristamatic {
                  If ingredients are not in stock...
                  */
                 else{
-                    System.out.println("OUT OF STOCK: "+inventory.getDrinks().get(selectionInt).getDrinkName());
+                    System.out.println("OUT OF STOCK: "+inventory.getDrinks().get(selectionInt-1).getDrinkName());
                 }
             }
         }
