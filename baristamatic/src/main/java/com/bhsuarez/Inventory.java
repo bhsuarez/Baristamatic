@@ -44,13 +44,83 @@ public class Inventory{
 
     // Checks to see if desired drink is in stock, returns true or false, sets inStock boolean for desired drink
     public boolean drinkInStock(int drinkNumberInput){
+
+        /*
+        /Coffee Recipe
+         */
         if (drinkNumberInput==1){
             if(     ingredients.get(0).getIngredientInventoryCount() >= 3 &&
                     ingredients.get(2).getIngredientInventoryCount() >= 1 &&
                     ingredients.get(3).getIngredientInventoryCount() >= 1){
-
                         drinks.get(drinkNumberInput).setInStock(true);
-                        System.out.println("IN STOCK 1");
+            }
+            else {
+                drinks.get(drinkNumberInput).setInStock(false);
+            }
+        }
+
+        /*
+        Decaf Coffee Recipe
+         */
+        if (drinkNumberInput==2){
+            if(     ingredients.get(1).getIngredientInventoryCount() >= 3 &&
+                    ingredients.get(2).getIngredientInventoryCount() >= 1 &&
+                    ingredients.get(3).getIngredientInventoryCount() >= 1){
+                drinks.get(drinkNumberInput).setInStock(true);
+            }
+            else {
+                drinks.get(drinkNumberInput).setInStock(false);
+            }
+        }
+
+        /*
+        Cafe Latte Recipe
+         */
+        if (drinkNumberInput==3){
+            if(     ingredients.get(6).getIngredientInventoryCount() >= 2 &&
+                    ingredients.get(4).getIngredientInventoryCount() >= 1){
+                drinks.get(drinkNumberInput).setInStock(true);
+            }
+            else {
+                drinks.get(drinkNumberInput).setInStock(false);
+            }
+        }
+
+        /*
+        Cafe Americano Recipe
+         */
+        if (drinkNumberInput==4){
+            if(     ingredients.get(6).getIngredientInventoryCount() >= 3){
+                drinks.get(drinkNumberInput).setInStock(true);
+            }
+            else {
+                drinks.get(drinkNumberInput).setInStock(false);
+            }
+        }
+
+        /*
+        Cafe Mocha Recipe
+         */
+        if (drinkNumberInput==5){
+            if(     ingredients.get(6).getIngredientInventoryCount() >= 1 &&
+                    ingredients.get(7).getIngredientInventoryCount() >= 1 &&
+                    ingredients.get(4).getIngredientInventoryCount() >= 1 &&
+                    ingredients.get(8).getIngredientInventoryCount() >= 1){
+                drinks.get(drinkNumberInput).setInStock(true);
+            }
+            else {
+                drinks.get(drinkNumberInput).setInStock(false);
+            }
+        }
+
+        /*
+        Cappuccino Recipe
+         */
+        if (drinkNumberInput==6){
+            if(     ingredients.get(6).getIngredientInventoryCount() >= 2 &&
+                    ingredients.get(4).getIngredientInventoryCount() >= 1 &&
+                    ingredients.get(5).getIngredientInventoryCount() >= 1){
+                drinks.get(drinkNumberInput).setInStock(true);
             }
             else {
                 drinks.get(drinkNumberInput).setInStock(false);
@@ -59,7 +129,7 @@ public class Inventory{
         return drinks.get(drinkNumberInput).isInStock();
     }
 
-    // Make drink method which uses ingredients to make drink if in stock
+    // Method to useIngredient() to make drink if in stock
     public void makeDrink(int drinkNumber){
         if(drinks.get(drinkNumber).isInStock()){
             switch (drinkNumber) {
@@ -69,20 +139,46 @@ public class Inventory{
                     ingredients.get(0).useIngredient(3);
                     ingredients.get(2).useIngredient(1);
                     ingredients.get(3).useIngredient(1);
-                    System.out.println("Dispensing: " + drinks.get(drinkNumber).getDrinkName());
+                    System.out.println("Dispensing: " + drinks.get(drinkNumber-1).getDrinkName());
                     break;
 
                 //
                 case 2:
-                    ingredients.get(0).useIngredient(3);
+                    ingredients.get(1).useIngredient(3);
                     ingredients.get(2).useIngredient(1);
                     ingredients.get(3).useIngredient(1);
-                    System.out.println("Dispensing: " + drinks.get(drinkNumber).getDrinkName());
+                    System.out.println("Dispensing: " + drinks.get(drinkNumber-1).getDrinkName());
+                    break;
+
+                case 3:
+                    ingredients.get(6).useIngredient(2);
+                    ingredients.get(4).useIngredient(1);
+                    System.out.println("Dispensing: " + drinks.get(drinkNumber-1).getDrinkName());
+                    break;
+
+                case 4:
+                    ingredients.get(6).useIngredient(3);
+                    System.out.println("Dispensing: " + drinks.get(drinkNumber-1).getDrinkName());
+                    break;
+
+                case 5:
+                    ingredients.get(6).useIngredient(1);
+                    ingredients.get(7).useIngredient(1);
+                    ingredients.get(4).useIngredient(1);
+                    ingredients.get(8).useIngredient(1);
+                    System.out.println("Dispensing: " + drinks.get(drinkNumber-1).getDrinkName());
+                    break;
+
+                case 6:
+                    ingredients.get(6).useIngredient(2);
+                    ingredients.get(4).useIngredient(1);
+                    ingredients.get(5).useIngredient(1);
+                    System.out.println("Dispensing: " + drinks.get(drinkNumber-1).getDrinkName());
                     break;
             }
         }
         else {
-            System.out.println("Out of stock: " + drinks.get(drinkNumber).getDrinkName());
+            System.out.println("Out of stock: " + drinks.get(drinkNumber-1).getDrinkName());
         }
     }
 
