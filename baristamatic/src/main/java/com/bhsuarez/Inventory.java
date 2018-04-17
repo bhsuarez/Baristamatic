@@ -132,7 +132,7 @@ public class Inventory{
 
     // Method to useIngredient() to make drink if in stock
     public void makeDrink(int drinkNumber){
-        if(drinks.get(drinkNumber).isInStock()){
+        if(drinks.get(drinkNumber-1).isInStock()){
             switch (drinkNumber) {
                 case 1:
                     ingredients.get(0).useIngredient(3);

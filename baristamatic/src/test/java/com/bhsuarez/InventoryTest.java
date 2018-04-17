@@ -25,26 +25,26 @@ public class InventoryTest {
     }
 
     @Test
-    public void getIngredients_Test(){
-        inventory.getIngredients();
-        assertEquals(inventory.getIngredients(),inventory.getIngredients());
+    public void getIngredients_Test_True(){
+        for(int i=0; i<inventory.getIngredients().size(); i++) {
+
+        }
     }
 
     @Test
     public void drinkInStock_Test_True(){
-        assertTrue(true);
+        for(int i=0; i<inventory.getDrinks().size(); i++) {
+            assertTrue(inventory.getDrinks().get(i).isInStock());
+        }
     }
 
     @Test
     public void makeDrink_Test(){
         assertTrue(true);
     }
-    // FIX ME
+
     @Test
     public void reloadIngredientInventory_Test(){
         inventory.reloadIngredientInventory();
-        //
-        // Enter test here
-        //
     }
 }

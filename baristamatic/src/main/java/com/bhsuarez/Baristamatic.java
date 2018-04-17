@@ -46,8 +46,6 @@ public class Baristamatic {
             // Make lowercase String
             selection = selection.toLowerCase();
 
-
-
             // If not 'r' or 'q'
             if(selection.charAt(0) != 'r' && selection.charAt(0) != 'q'){
                 int selectionInt = Integer.parseInt(selection);
@@ -71,7 +69,10 @@ public class Baristamatic {
                     inventory.makeDrink(selectionInt);
                 }
 
-                // If ingredients are not in stock...
+                /*
+                 *
+                 If ingredients are not in stock...
+                 */
                 else{
 
                     // Loop while inventory is not in stock
