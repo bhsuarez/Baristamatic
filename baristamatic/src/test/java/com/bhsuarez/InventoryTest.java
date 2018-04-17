@@ -31,9 +31,9 @@ public class InventoryTest {
     }
 
     @Test
-    public void ingredientsInStock_Test(){
-        inventory.ingredientsInStock(0);
-        assertEquals(inventory.ingredientsInStock(0),inventory.ingredientsInStock(0));
+    public void drinkInStock_Test_True(){
+        inventory.drinkInStock(0);
+        assertEquals(inventory.drinkInStock(0),inventory.drinkInStock(0));
     }
 
     @Test
@@ -41,7 +41,6 @@ public class InventoryTest {
         inventory.makeDrink(0);
         assertTrue(true);
     }
-
     // FIX ME
     @Test
     public void reloadIngredientInventory_Test(){
