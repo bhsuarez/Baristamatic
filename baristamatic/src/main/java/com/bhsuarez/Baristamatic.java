@@ -54,18 +54,28 @@ public class Baristamatic {
                 inventory.reloadIngredientInventory();
             }
 
+            // If selection is not 'r' or 'q'
+            if (selection.charAt(0)!='r' || selection.charAt(0)!='q'){
+                System.out.println("INCORRECT VALUE: " + selection);
+            }
+
             // If selection matches int value, parse String into int
             if (selection.matches("\\d+")) {
                 selectionInt = Integer.parseInt(selection);
 
                 // While loop for out of bound values
-                while (selectionInt <= 0 || selectionInt > inventory.getDrinks().size()) {
+                while (!selection.matches("\\d+") || selectionInt <= 0 || selectionInt > inventory.getDrinks().size()) {
 
                     // If selectionInt js greater than size or selectionInt is less than 0
                     if (selectionInt > inventory.getDrinks().size() || selectionInt <= 0) {
-                        System.out.println("INCORRECT VALUE: " + selectionInt);
+                        System.out.println("INCORRECT VALUE: " + selection);
                         System.out.print("Please enter a drink selection [1-6] [q] to quit or [r] to refill ingredients: ");
                         selection = scan.next();
+
+                        // If selection matches int value, parse String into int
+                        if (selection.matches("\\d+")) {
+                            selectionInt = Integer.parseInt(selection);
+                        }
 
                         // If selection is 'r' reloadIngredientInventory()
                         if (selection.charAt(0) == 'r') {
@@ -76,11 +86,11 @@ public class Baristamatic {
                         if (selection.charAt(0) == 'q'){
                             break;
                         }
-                        if (selection.charAt(0) != 'r' || selection.charAt(0) != 'q' || selectionInt <=0 || selectionInt > inventory.getDrinks().size()){
-                            System.out.println("INCORRECT VALUE: " + selectionInt);
-                            System.out.print("Please enter a drink selection [1-6] [q] to quit or [r] to refill ingredients: ");
-                            selection = scan.next();
-                        }
+//                        if (selection.charAt(0) != 'r' || selection.charAt(0) != 'q' || selectionInt <=0 || selectionInt > inventory.getDrinks().size()){
+//                            System.out.println("INCORRECT VALUE: " + selectionInt);
+//                            System.out.print("Please enter a drink selection [1-6] [q] to quit or [r] to refill ingredients: ");
+//                            selection = scan.next();
+//                        }
                     }
                 }
 
