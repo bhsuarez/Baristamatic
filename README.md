@@ -1,4 +1,4 @@
-# BrianSuarez_Assignment2
+# Baristamatic
 
 ## Drink.java
 Creates a Drink object
